@@ -1,0 +1,108 @@
+
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Adjust the desired height for the gallery */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-link {
+  display: block;
+}
+
+.gallery-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.gallery-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gallery-arrow.left {
+  left: 10px;
+}
+
+.gallery-arrow.right {
+  right: 10px;
+}
+
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  overflow: auto;
+}
+
+.image-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  position: relative;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency as needed */
+  max-width: 50%;
+  max-height: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  color: #6c0000;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.modal-img {
+  display: block;
+  max-height: calc(100vh - 100px); /* Adjust as needed */
+  max-width: 100%;
+}
+
+
+
+
+
+

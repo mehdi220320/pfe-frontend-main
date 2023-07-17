@@ -1,0 +1,118 @@
+
+<br>
+<br>
+<br>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+
+  <!-- Content wrapper start -->
+  <div class="content-wrapper">
+
+    <!-- Row start -->
+    <div class="row gutters">
+
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+        <div class="card m-0">
+
+          <!-- Row start -->
+          <div class="row no-gutters">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
+              <div class="users-container">
+                <div class="chat-search-box">
+                  <div class="input-group">
+                    <input class="form-control" placeholder="Search">
+                    <div class="input-group-btn">
+                      <button type="button" class="btn btn-info">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <ul class="users" *ngFor="let chat of allMyChats;let i=index;">
+                  <li class="person" data-chat="person1" [class.selected]="chat.chat.chatId === selectedChat.chatId"
+                      (click)="getChat(chat.who.profileId)" style="display: flex">
+                    <div style="display: flex">
+                    <div class="user">
+                      <img [src]="chat.who.profileImg" alt="Retail Admin">
+                    </div>
+                      <div>
+                    <p class="name-time">
+                      <span class="name">{{chat.who.name}} {{chat.who.lastName}}</span>
+                      <span class="time" style="margin-left: 0.8rem;">
+                        {{chat.chat.messages[chat.chat.messages.length-1].time | customDate}}
+                      </span>
+                    </p>
+                    <p *ngIf="chat.chat.messages.length>0 && chat.chat.messages[chat.chat.messages.length-1].mssg.length<25" style="margin-top: -8%">
+                      {{chat.chat.messages[chat.chat.messages.length-1].mssg}}</p>
+
+                        <p *ngIf="chat.chat.messages.length>0 && chat.chat.messages[chat.chat.messages.length-1].mssg.length>=25" style="margin-top: -8%">
+                          {{chat.chat.messages[chat.chat.messages.length-1].mssg.slice(0,25)+' ...'}}</p>
+                      </div>
+                    </div>
+                  </li>
+
+
+                </ul>
+              </div>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+              <div class="selected-user">
+                <span>To: <span class="name">Emily Russell</span></span>
+              </div>
+              <div class="chat-container"  style="height: 430px; overflow-y: auto;">
+                <ul class="chat-box chatContainerScroll" *ngFor="let mssg of currentChat.messages;let i=index;">
+                  <li class="chat-left" *ngIf="currentUser.userName!=mssg.senderMssg">
+                    <div class="chat-avatar">
+                      <img alt="Retail Admin" [src]="who.profileImg">
+                    </div>
+                    <div class="chat-text">{{who.name}} {{who.lastName}}
+                      <br>{{mssg.mssg}}</div>
+                    <div class="chat-hour">{{formatTime(mssg.time)}}<span class="fa fa-check-circle"></span></div>
+                  </li>
+                  <!--currentUser.profileId!=who-->
+                  <li class="chat-right" *ngIf="currentUser.userName==mssg.senderMssg">
+                    <div class="chat-hour">{{formatTime(mssg.time)}}<span class="fa fa-check-circle"></span></div>
+                    <div style="background-color: #3797f0;border-radius: 10px;" class="chat-text">{{currentUser.name}} {{currentUser.lastName}}
+                      <br>{{mssg.mssg}}</div>
+                    <div class="chat-avatar">
+                      <img [src]="currentUser.profileImg" alt="Retail Admin">
+                    </div>
+                  </li>
+                </ul>
+               </div>
+                  <div style="display: flex;width: 95%;margin-left: 2%;">
+                    <div class="input-group">
+                      <input class="form-control message-input" placeholder="Type your message here..." #messageInput>
+                      <div class="input-group-append">
+
+                       <!-- <button id="emoji-button" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">😀</button>
+                        <br>
+                        <emoji-mart style="width: 66%;margin-left:10%" class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
+
+-->
+                        <button class="btn btn-success btn-send" (click)="sendMssg(currentChat.chatId,messageInput.value);messageInput.value = ''">
+                          <i class="fa fa-paper-plane"></i>
+                        </button>
+
+
+
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <!-- Row end -->
+        </div>
+
+      </div>
+
+    </div>
+    <!-- Row end -->
+
+  </div>
+  <!-- Content wrapper end -->
+
+</div>

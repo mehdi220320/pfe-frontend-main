@@ -1,0 +1,19 @@
+<div class="container profile" *ngIf="images.length>0">
+  <div class="gallery">
+    <div class="gallery-item" *ngIf="currentImage">
+      <a class="gallery-link" (click)="openImageModal()">
+        <img [src]="currentImage.path" alt="Image" class="gallery-img">
+      </a>
+    </div>
+    <div class="gallery-arrow left" (click)="previousImage()" *ngIf="currentIndex > 0">&#8249;</div>
+    <div class="gallery-arrow right" (click)="nextImage()" *ngIf="currentIndex < images.length - 1">&#8250;</div>
+  </div>
+</div>
+
+<!-- Image Modal -->
+<div class="image-modal" [ngClass]="{'active': isImageModalOpen}">
+  <div class="modal-content">
+    <span class="close" (click)="closeImageModal()">&times;</span>
+    <img *ngIf="currentImage" [src]="currentImage.path" alt="Image" class="modal-img">
+  </div>
+</div>

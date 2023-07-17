@@ -1,0 +1,11 @@
+@media screen and (max-width: 992px) {
+  #simple-header{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  #humberger-header{
+    display: none;
+  }
+}

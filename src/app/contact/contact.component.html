@@ -1,0 +1,71 @@
+<div class="work-steps" id="work-steps">
+  <h2 style="    font-size: 30px; margin-left: 100px; margin-bottom: 40px;">Contact Us</h2>
+  <div class="container">
+
+    <div class="info" style="display: flex">
+      <div class="box" style="border-bottom-left-radius: 60px">
+        <div class="form">
+          <div class="content">
+            <form action="" [formGroup]="contactForm">
+              <input class="input" type="text" placeholder="You are (artist or user)" name="Vous êtes" required formControlName="selectedOption"
+                     [ngStyle]="{'border-color': controls.selectedOption && controls.selectedOption.invalid && controls.selectedOption.touched ? 'red' : ''}"/>
+
+              <input class="input" type="text" placeholder="name" name="name" required formControlName="name"
+                     [ngStyle]="{'border-color': controls.name && controls.name.invalid && controls.name.touched ? 'red' : ''}"/>
+
+              <input class="input" type="email" placeholder="Email" name="email" required formControlName="userName"/>
+              <div *ngIf="controls && controls.userName.touched && controls.userName.invalid" style="margin-top: -18px">
+                <span style="color: red;display: flex">invalid mail</span>
+                <br>
+              </div>
+
+              <input class="input" type="number" placeholder="phone" name="mobile" required formControlName="tel"/>
+              <div *ngIf="controls.tel.touched && controls.tel.invalid" style="margin-top: -18px">
+                <span style="color: red;display: flex">your phone number must contain 8 digits</span>
+                <br>
+              </div>
+
+              <textarea class="input" placeholder="Tell us about your needs" name="message" required formControlName="message"
+                        [ngStyle]="{'border-color': controls.message && controls.message.invalid && controls.message.touched ? 'red' : ''}"></textarea>
+
+              <input type="submit" value="Send" [disabled]="contactForm.invalid" (click)="envoyerMail(contactForm)"/>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div style="background-color: #b3e1b3 ; display: block; border-top-right-radius: 60px;" class="box">
+        <h2 class="contact-title">For any request for information or assistance, please contact us:</h2>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <div style="display: flex"><span class="img_reponse"><img style="width: 50px;margin-right: 8px;" alt="Numéro vert" data-entity-type="file" src="/assets/imgs/contact-user.png"></span>
+
+              <div style="display: grid ; margin-left: 8px;"><span class="label_reponse" >To the green number</span><a class="link_reponse" href="tel:80100092">80 10 00 92</a></div>
+            </div>
+          </div>
+
+
+
+          <div>
+            <div style="display: flex;"><span class="img_reponse"><img style="width: 60px;margin-right: 8px;" alt="Email" data-entity-type="file" src="/assets/imgs/mail.png"></span>
+
+              <div  style="display: grid ; margin-left: 8px;"><span class="label_reponse">By email</span> <a class="link_reponse" href="mailto:upcyclingartpfe@gmail.com">upcyclingartpfe@gmail.com</a></div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <h2 class="content_big">We are delighted to hear from you and eager to learn how we can be of assistance. Whether you have a question or a concern we encourage you to contact us.</h2>
+
+
+
+        <img style="margin-top: -35px" id="imgcontact" src="/assets/imgs/contact-removebg-preview.png" alt="" />
+        <!--<div class="text">
+          <h3>Si vous êtes un simple utilisateur</h3>
+          <p>
+          </p>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

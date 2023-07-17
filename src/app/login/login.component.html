@@ -1,0 +1,116 @@
+<div class="discount" id="discount">
+  <div class="image">
+    <div class="content" style="display: flex">
+
+      <img src="/assets/imgs/chojra.png" alt="" />
+      <img id="shape12" src="/assets/imgs/shapes/12.png" alt="" />
+    </div>
+  </div>
+  <div class="form">
+    <div class="content" style="width: 450px">
+      <h2>Login</h2>
+      <form action="" name="myform" (ngSubmit)="login(myForm)" [formGroup]="myForm">
+        <input class="input"
+               type="email"
+               placeholder="Your E-mail"
+               name="userName"
+               formControlName="userName"
+               />
+        <div  *ngIf="userName && userName.invalid && userName.touched" style="margin-top: -18px">
+          <span style="color: red;display: flex">invalid Email</span>
+          <br>
+
+        </div>
+
+        <input [ngStyle]="{'border-color': userPassword && userPassword.invalid && userPassword.touched ? 'red' : ''}"
+               class="input" type="password"
+               placeholder="Password"
+               name="password" formControlName="userPassword"  required
+        />
+        <div>
+          <button id="btnlogin" type="submit" [disabled]="isLoading || !myForm.valid">
+            <span *ngIf="isLoading" class="spinner-border text-light" role="status"></span>
+            {{ isLoading ? '' : 'Connect' }}
+          </button>
+
+
+
+        </div>
+
+        <a id="createSubs" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModalCenter" hidden>
+          create subs
+        </a>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Thank you for trying out our free trial! </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" style="margin-right: 60px;">
+                We noticed that your free trial period has come to an end. We hope you enjoyed exploring our platform and experiencing its key features. To continue enjoying the benefits of our service, we invite you to create your first subscription.
+               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success"
+                        (click)="redirectToRenewalPage()"
+                >Create Subs</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a id="renewSubs" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModalCenter1" hidden>
+          subs
+        </a>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle1">Your subscription has been expired!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" style="margin-right: 60px;">
+                Renewing your subscription is quick and easy. Simply click the 'Renew Subs' button below, and you'll be back on track to experience all that our platform has to offer
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success"
+                        (click)="redirectToRenewalPage()"
+                >Renew Subs</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Button trigger modal -->
+<button hidden id="mdp-false" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"  style="margin-top: 50%;">
+
+      <div class="modal-body" style="color: red">
+        try again your password or username is false
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

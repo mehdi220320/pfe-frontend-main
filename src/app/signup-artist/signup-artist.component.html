@@ -1,0 +1,94 @@
+<br>
+<br>
+<div id="alert-subs" class="alert alert-success" role="alert" *ngIf="showAlert" [@alertAnimation]>
+  Welcome 👋 ! Try our free trial (7 days) signup as an artist and unlock a world of possibilities 🤩. As an artist, you'll gain access to a range of exciting features and benefits that can help you showcase your talent and connect with your audience.
+</div>
+
+<div class="discount" id="discount">
+  <div class="image">
+    <div class="content">
+
+      <img src="/assets/imgs/chojra.png" alt="" />
+      <img id="shape-bg" src="/assets/imgs/shapes/13.png" alt="" />
+    </div>
+  </div>
+  <div class="form">
+    <div class="content">
+      <h2>Signup as artist</h2>
+      <form name="signupForm" [formGroup]="signupForm" (ngSubmit)="signup(signupForm)" style="width: 26rem;">
+        <input [ngStyle]="{'border-color': controls.name && controls.name.invalid && controls.name.touched ? 'red' : ''}"
+               class="input" type="text" placeholder="name" name="name"
+               formControlName="name"
+               required/>
+        <input [ngStyle]="{'border-color': controls.prenom && controls.prenom.invalid && controls.prenom.touched ? 'red' : ''}"
+               class="input" type="text" placeholder="last name" name="prenom"
+               formControlName="prenom"
+               required/>
+        <input class="input" type="email" placeholder="E-mail" name="email"
+               formControlName="userName"
+               required/>
+        <div *ngIf="controls && controls.userName.touched && controls.userName.invalid" style="margin-top: -18px">
+          <span style="color: red;display: flex">invalid mail</span>
+          <br>
+        </div>
+        <input class="input" type="number" placeholder="phone number" name="tel"
+               formControlName="tel"
+               required/>
+        <div *ngIf="controls.tel.touched && controls.tel.invalid" style="margin-top: -18px">
+          <span style="color: red;display: flex">your phone number must contains 8 numbers</span>
+          <br>
+        </div>
+        <div style="display: flex">
+          <input id="showpass" type="password" class="input" placeholder="password" name="mdp"
+                 formControlName="userPassword"
+                 required/><i id="eyeslashpass" style="
+                background-color: #80808075;width: 40px;margin-bottom: 25px;padding-top: 15px;
+                cursor: pointer;border-bottom-right-radius: 6px;
+                border-top-right-radius: 6px;" class="fa fa-eye-slash" (click)="showPassword()"></i>
+        </div>
+
+        <p style="font-size: 15px;width: 420px;color: red;margin-top: -18px;display: flex" *ngIf="controls.userPassword.errors?.['pattern']">
+          Password must contain at least one number, one uppercase and a
+          lower case letter and at least 8 characters . Password cannot
+          contain whitespace
+        </p>
+
+        <div style="display: flex">
+          <input id="showpasscf" class="input" type="password" placeholder="conformer password" name="cmdp"
+                 formControlName="userPasswordCnf"
+                 required/><i id="eyeslashpasscf" style="background-color: #80808075;width: 40px;margin-bottom: 25px;padding-top: 15px;
+                cursor: pointer;border-bottom-right-radius: 6px;
+                border-top-right-radius: 6px;" class="fa fa-eye-slash" (click)="showPasswordcf()" ></i>
+
+        </div>
+        <p style="font-size: 15px;width: 420px;color: red;margin-top: -18px;display: flex" *ngIf="signupForm.hasError('notSame') && controls.userPasswordCnf.touched">Passsword and
+          Confirm Password didn't match. </p>
+
+
+        <input [ngStyle]="{'border-color': controls.specialite && controls.specialite.invalid && controls.specialite.touched ? 'red' : ''}"
+               required
+               class="input" type="text" placeholder="Specialité" name="speciality"
+               formControlName="specialite" />
+        <input [ngStyle]="{'border-color': controls.description && controls.description.invalid && controls.description.touched ? 'red' : ''}"
+               required
+               class="input" type="text" placeholder="Description" name="description"
+               formControlName="description" />
+        <input required
+               class="input" type="number" placeholder="CIN" name="cin"
+               formControlName="cin" />
+        <div *ngIf="controls.cin.invalid && controls.cin.touched"  style="margin-top: -18px">
+          <span style="color: red;display: flex">your CIN must contains 8 numbers</span>
+          <br>
+        </div>
+
+        <div>
+
+          <button style="width: 50%;display: table-cell;" class="btn btn-primary" type="submit" [disabled]="isLoading || !signupForm.valid">
+            <span *ngIf="isLoading" class="spinner-border text-light" role="status"></span>
+            {{ isLoading ? '' : 'Signup' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

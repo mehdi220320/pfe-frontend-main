@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div  style="width: 100%">
+      <div class="people-nearby" *ngFor="let artist of followerArtists;let i=index;">
+        <div class="nearby-user">
+          <div class="row">
+            <div class="col-md-2 col-sm-2">
+              <img [src]="artist.profileImg" alt="user" class="profile-photo-lg">
+            </div>
+            <div class="col-md-7 col-sm-7">
+              <h5><a routerLink="/visitProfile/{{artist.profileId}}" class="profile-link">{{artist.name}} {{artist.lastName}}
+                <i class="fa-solid fa-check-circle" style="color: #3ba6f7;"></i>
+              </a></h5>
+              <p>Speciality : {{artist.specialite}}</p>
+              <p>Tel : {{artist.telephone}}</p>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <button (click)="unfollowArtist(artist.profileId,i)" class="btn btn-light pull-right">Delete</button>
+            </div>
+          </div>
+        </div >
+      </div>
+      <div class="people-nearby" *ngFor="let utilisateurSimple of followerUtilisateurSimpleDTOSet;let i=index;">
+        <div class="nearby-user">
+          <div class="row">
+            <div class="col-md-2 col-sm-2">
+              <img [src]="utilisateurSimple.profileImg" alt="user" class="profile-photo-lg">
+            </div>
+            <div class="col-md-7 col-sm-7">
+              <h5><a routerLink="/visitProfile/{{utilisateurSimple.profileId}}" class="profile-link">{{utilisateurSimple.name}} {{utilisateurSimple.lastName}}</a></h5>
+              <p>Mail : {{utilisateurSimple.userName}}</p>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <button (click)="unfollowUser(utilisateurSimple.profileId,i)" class="btn btn-light pull-right">Delete</button>
+            </div>
+          </div>
+        </div >
+      </div>
+    </div>
+  </div>
+</div>

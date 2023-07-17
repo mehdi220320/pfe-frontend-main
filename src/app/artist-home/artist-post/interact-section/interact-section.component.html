@@ -1,0 +1,91 @@
+<div class="card-footer">
+                <div class="d-flex post-actions" style="grid-column-gap: 80px;">
+                  <a href="javascript:;" class="d-flex align-items-center text-muted mr-4 dropdown" (mouseleave)="showLikeList = false">
+                    <i [ngStyle]="redHeart ? { 'color': 'rgb(255 59 59)' } : { 'color': 'white' }" id="heart" style="font-size: 23px;" class="fa-solid fa-heart"></i>
+                    <p (click)="redHeart ? dislike(intercat.id) : like(intercat.id)" class="d-none d-md-block ml-2 dropdown-toggle"
+                    (mouseenter)="showLikeList = true"
+                    style="margin: 0 0 0 0;">Like</p>
+                    <div class="dropdown-menu" *ngIf="showLikeList">
+                      <ul class="list-unstyled">
+                        <li *ngFor="let like of likes;let i=index;" routerLink="/visitProfile/{{items[i].profileId}}">
+                          {{ like }}
+                        </li>
+                      </ul>
+                    </div>
+                  </a>
+
+                  <a href="javascript:;" class="d-flex align-items-center text-muted mr-4" (click)="hideSection()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square icon-md">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <p style="margin: 0 0 0 0;" class="d-none d-md-block ml-2">Comment</p>
+                  </a>
+                  <a href="javascript:;" class="d-flex align-items-center text-muted">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share icon-md">
+                      <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                      <polyline points="16 6 12 2 8 6"></polyline>
+                      <line x1="12" y1="2" x2="12" y2="15"></line>
+                    </svg>
+                    <p style="margin: 0 0 0 0;" class="d-none d-md-block ml-2">Share</p>
+                  </a>
+                </div>
+              </div>
+
+<div [@slideInOut]="showSection ? 'in' : 'out'" [ngStyle]="showSection ? {'padding-top': '2%'}:{}">
+
+
+        <div *ngFor="let childComment of displayedItems">
+
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex flex-start">
+              <img class="rounded-circle shadow-1-strong me-3"
+                   src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="avatar" width="40"
+                   height="40" />
+              <div class="w-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h6 style="position: relative;margin-left: 3%;" class="text-primary fw-bold mb-0">
+                    {{childComment.profileName}}
+                    <br>
+                    <span class="text-dark ms-2">{{childComment.description}}</span>
+                  </h6>
+                  <p class="mb-0">{{getTimeAgo(childComment)}}</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="small mb-0" style="color: #aaa;">
+                    <a href="#!" class="link-grey">Remove</a> •
+                    <a href="#!" class="link-grey">Reply</a> •
+                    <a href="#!" class="link-grey">Translate</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+  <!--<p style="cursor: pointer;margin-left: 4%;color: #34439d;" (click)="showAllItems()">show more >></p>
+  <p style="cursor: pointer;margin-left: 4%;color: #34439d;" (click)="showLessItems()">show less >></p>-->
+      <div class="input-group mb-3" style="width: 96%;margin-left: 2%;">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">
+              <img class="rounded-circle shadow-1-strong me-3"
+                   src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="avatar" width="40"
+                   height="40" />
+            </span>
+        </div>
+
+        <input required placeholder="ur comment ..." [(ngModel)]="urinput" data-emoji="true" style="height: 3.4rem;" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <button (click)="commenter(urinput,intercat.id)"  style="border-bottom-left-radius: 0;border-top-left-radius: 0" class="btn btn-primary" [disabled]="!urinput">Publier</button>
+
+      </div>
+      <!--strat emoji-->
+
+  <button id="emoji-button" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">😀</button>
+<br>
+  <emoji-mart style="width: 66%;margin-left:10%" class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
+
+
+      <!--end emoji-->
+
+</div>

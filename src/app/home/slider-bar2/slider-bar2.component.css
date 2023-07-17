@@ -1,0 +1,271 @@
+.section-bar{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slider{
+  margin-top: 334px;
+    height: 1000px;
+    overflow: hidden;
+}
+.slide{
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+.slide input{
+    display: none;
+}
+.st {
+  width: 20%;
+  transition: 2s;
+  display: flex;
+  background-image: url(src/assets/imgs/output-onlinepngtools.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nav-m{
+    position: absolute;
+    width: 58.56%;
+    margin-top: -40px;
+    justify-content: center;
+    display: flex;
+    margin-left: 25%;
+}
+.m-btn{
+    border: 2px solid #23e3c2;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+.m-btn:not(:last-child){
+    margin-right: 30px;
+}
+.m-btn:hover{
+    background-color: #23e3c2;
+}
+#radio1:checked ~.first{
+    margin-left:0 ;
+}
+#radio2:checked ~.first{
+    margin-left:-20%;
+}
+#radio3:checked ~.first{
+    margin-left:-40%;
+}
+
+.nav-auto{
+    position: absolute;
+    width: 58.56%;
+    margin-top: 460px;
+    display: flex;
+    justify-content: center;
+    margin-left: 25%;
+}
+.nav-auto div{
+    border:2px solid #23e3c2;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+.nav-auto div:not(:last-child){
+    margin-right: 30px;
+    justify-content: center;
+}
+#radio1:checked~ .nav-auto .a-b1{
+    background-color: #23e3c2;
+}
+#radio2:checked~ .nav-auto .a-b2{
+    background-color: #23e3c2;
+}
+#radio3:checked~ .nav-auto .a-b3{
+    background-color: #23e3c2;
+}
+
+.content{
+    padding: 20px;
+    margin: 100px 0 0;
+    width: 60%;
+}
+.content h1{
+    margin-left: 40px;
+    margin-bottom: 20px;
+    font-size:3.5em	;
+}
+.content h3{
+    margin-left: 40px;
+    margin-bottom: 10px;
+    font-size:1.5em	;
+}
+
+.content p{
+    margin-left: 40px;
+    line-height: 1.5;
+    font-size: 20px;
+}
+.apropos{
+    width: 200px;
+    height: 50px;
+    background: #f2eff1;
+    margin-left: 7%;
+    margin-top: 15px;
+    font-size: 1.3em;
+    border-radius: 6px;
+}
+.button-benefits{
+    font-size: 1.3em;
+    margin-left: 10%;
+  border: 2px solid white;
+}
+.button-benefits-user{
+    font-size: 1.3em;
+    margin-left: 65%;
+    margin-top:10px;
+  border: 2px solid white;
+}
+.slider-btn.prev{
+    left: 1rem;
+    width: 50px;
+    height: 50px;
+    top: 250px;
+    position: absolute;
+    background: transparent;
+    border: transparent;
+}
+
+.slider-btn.next{
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    top: 250px;
+    position: absolute;
+    background: transparent;
+    border: transparent;
+
+}
+.image img{
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#ph{
+  font-size: 23px;
+  line-height: 1.7;
+  margin: 5px 60px 0;
+  color: #666;
+  max-width: 500px;
+}
+
+#recycle{
+  width:90%;
+  margin-left:10%;
+  margin-top:35px
+}
+
+@media screen and (max-width: 600px) and (min-width: 380px){
+  .section-bar{
+    width: 323%;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+#tree{
+  width: 51.24%;
+  height: 456px;
+  margin-top: 43px;
+}
+
+.bienvenue{
+  margin-left: 65px;
+  font-size: 40px
+}
+
+#title3{
+  margin-top:10%;
+  font-size: 46px
+}
+
+@media screen and (min-width: 300px) and (max-width: 1200px){
+  .section-bar{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 78vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #tree{
+    display: none;
+  }
+
+  .bienvenue{
+    margin-left: 0px;
+    font-size: 34px;
+  }
+
+  #ph{
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 3px 1px 0;
+    color: #666;
+    /* max-width: 486px; */
+  }
+
+  .apropos{
+    margin-left: 20%;
+    margin-top: 15px;
+    font-size: 1.3em;
+  }
+
+
+  #st{
+    display: block;
+  }
+
+  #recycle{
+    width: 60%;
+    margin-left: 18%;
+    margin-top: 100px;
+  }
+
+  .content{
+    padding: 20px;
+    margin: 0 0 0;
+    width: 100%;
+  }
+
+  #title3{
+    margin-top:0;
+    font-size: 27px;
+    margin-left: 63px;
+  }
+
+  #content1{
+    margin: 22px 66px 0;
+  }
+
+}
+

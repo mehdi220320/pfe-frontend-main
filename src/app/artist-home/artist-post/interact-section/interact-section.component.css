@@ -1,0 +1,39 @@
+.card-footer:last-child {
+  border-radius: 0 0 0 0;
+}
+.card-footer {
+  padding: 0.875rem 1.5rem;
+  background-color: rgba(0, 0, 0, 18%);
+  border-top: 1px solid #acadb0;
+  border-bottom-right-radius: 0.8rem !important;
+  border-bottom-left-radius: 0.8rem !important;
+
+}
+.link-grey { color: #aaa; } .link-grey:hover { color: #00913b; }
+
+#emoji-button{
+  background: transparent;
+  border: 0;
+  transform: translateX(77px);
+  cursor: pointer;
+  width: 33px;
+  font-size: 20px;
+}
+
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  display: block;
+  z-index: 1000;
+  min-width: 7rem;
+  padding: 0 0 0 8px;
+  background-color: #00000087;
+  color: white;
+  font-size: 12px;
+  margin-top: -5%;
+}
+

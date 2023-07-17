@@ -1,0 +1,48 @@
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="articles" id="articles">
+
+    <div class="container">
+      <div class="box">
+      <div class="content">
+        <div class="prompt">
+          Enter the code generated on your email below to log in!
+        </div>
+        <form #signupForm ="ngForm" (ngSubmit)="verify(signupForm)" style="margin-left: 120px"
+              method="get" class="digit-group" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+          <input type="text" id="digit1" #digit1 name="digit1" maxlength="1" (keyup)="move($event,'',digit1,digit2)" ngModel required/>
+          <input type="text" id="digit2" #digit2 name="digit2" maxlength="1" (keyup)="move($event,digit1,digit2,digit3)" ngModel required/>
+          <input type="text" id="digit3" #digit3 name="digit3" maxlength="1" (keyup)="move($event,digit2,digit3,digit4)" ngModel required/>
+          <input type="text" id="digit4" #digit4 name="digit4" maxlength="1" (keyup)="move($event,digit3,digit4,digit5)" ngModel required/>
+          <input type="text" id="digit5" #digit5 name="digit5" maxlength="1" (keyup)="move($event,digit4,digit5,digit6)" ngModel required/>
+          <input type="text" id="digit6" #digit6 name="digit6" maxlength="1" (keyup)="move($event,digit5,digit6,'')" ngModel required/>
+
+          <input type="submit" value="verify" class="btn form-control rounded-0"
+                 style="width: 26%;margin-left: 25px; margin-top: -8px; color: white;height: 60px"
+                 [disabled]="signupForm.invalid">
+
+
+
+        </form>
+
+      </div>
+        <div class="info">
+
+          <div style="margin-top: 5px; color: #18182b;cursor: pointer;width: 117px" (click)="resendCode()">
+            <mat-icon>send</mat-icon>
+            resend code
+          </div>
+          <div>
+            <app-count-down [reDate]="resendDate"></app-count-down>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
